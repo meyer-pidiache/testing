@@ -24,20 +24,20 @@ if [ "$(id -u)" == "0" ]; then
     echo -e "\n${redColour}[*]${endColour} Use: checkIP -h [IP address]"
   else
     # Process
-    echo "${greenColour}[*]${endColour} Starting"
-    echo -e "\n${blueColour}[*]${endColour} Nmap: all open ports\n"
+    echo -e "[${greenColour}*${endColour}] Starting"
+    echo -e "\n[${blueColour}*${endColour}] Nmap: all open ports\n"
     nmap -p- --open -sS --min-rate 500m -vvv -n -Pn $host -oG allOpenPorts
     ports="$(cat allOpenPorts | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
 
     if [ -n "$ports" ]; then
-      echo -e "\n${blueColour}[*]${endColour} Scanning target\n"
+      echo -e "\n[${blueColour}*${endColour}] Scanning target\n"
       nmap -sCV -O -p$ports $host -oN targeted
     else
-      echo -e "\n${redColour}[*]${endColour} No ports found"
+      echo -e "\n[${redColour}*${endColour}] No ports found"
       rm allOpenPorts
     fi
   fi
 
 else
-  echo -e "\n${yellowColour}[*]${endColour} Execute as root\n"
+  echo -e "\n[${yellowColour}*${endColour}] Execute as root\n"
 fi
