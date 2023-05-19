@@ -13,13 +13,18 @@ session_start();
 
 <body>
     <?php
-
+    // Getting post info
     $name = $_POST["name"];
     $age = $_POST["age"];
 
-    $_SESSION["id"] = $name + $age;
+    $_SESSION["id"] = "$name" . "$age";
 
-    echo "<h1>Welcome $name</h1>";
+    function getName () {
+        global $name;
+        echo "<h1>Welcome $name</h1>";
+    }
+
+    getName();
 
     if ($age >= 18) {
         echo "<h3>You can read interesting books</h3>";
@@ -27,9 +32,9 @@ session_start();
         echo "<h3>Too young to see the content</h3>";
     }
 
-    foreach ($_SERVER as $key => $value) {
-        echo "<p>$key -> $value</p>";
-    }
+    // foreach ($_SERVER as $key => $value) {
+    //     echo "<p>$key -> $value</p>";
+    // }
 
     ?>
 
