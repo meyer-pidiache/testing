@@ -8,9 +8,12 @@ form {
   text-align: center;
 }
 
-input[type="text"] {
+#name, #age {
+  border-radius: .5rem;
+}
+
+input[type="text"], input[type="number"] {
   height: 1.2rem;
-  padding-bottom: .2rem;
 }
 
 #submit {

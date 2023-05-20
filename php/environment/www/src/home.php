@@ -14,17 +14,19 @@ session_start();
 <body>
     <?php
     // Getting post info
-    $name = $_POST["name"];
+    /// Constant 
+    define("NAME", $_POST["name"]);
+    // Variable
     $age = $_POST["age"];
 
-    $_SESSION["id"] = "$name" . "$age";
+    $_SESSION["id"] = NAME . "$age";
 
-    function getName () {
-        global $name;
-        echo "<h1>Welcome $name</h1>";
+    function showName () {
+        global $NAME;
+        echo "<h1>Welcome " . NAME . "</h1>";
     }
 
-    getName();
+    showName();
 
     if ($age >= 18) {
         echo "<h3>You can read interesting books</h3>";
