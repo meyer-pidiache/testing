@@ -15,15 +15,15 @@ setManaged() {
   echo -e "[${GREEN}*${ENDCOLOR}] Restarting network..."
   ip link set $interface down
   # Deactivate monitor mode
-  # iw dev | grep "monitor" >/dev/null
-  # if [[ $(echo $?) -ne 1 ]]; then
-  #   iw $interface set type managed
-  #   if [[ "$?" -ne 0 ]]; then
-  #     echo -e "[${RED}*${ENDCOLOR}] Failed to set managed interface"
-  #   else
-  #     echo -e "[${GREEN}*${ENDCOLOR}] $interface is now managed"
-  #   fi
-  # fi
+  iw dev | grep "monitor" >/dev/null
+  if [[ $(echo $?) -ne 1 ]]; then
+    iw $interface set type managed
+    if [[ "$?" -ne 0 ]]; then
+      echo -e "[${RED}*${ENDCOLOR}] Failed to set managed interface"
+    else
+      echo -e "[${GREEN}*${ENDCOLOR}] $interface is now managed"
+    fi
+  fi
 
   # Restarting network services
   network_services=(wpa_supplicant.service NetworkManager.service dhcpcd.service)
