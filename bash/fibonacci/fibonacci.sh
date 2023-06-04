@@ -1,26 +1,30 @@
 echo -n "Type Fibonacci Length: "
 read -r position
 
-getFibonacci (number) {
+getFibonacci () {
+  number=$1
   if [[ $number == 0 ]]; then
     return 0
   elif [[ $number == 1 ]]; then
     return 1
   else
-    return getFibonacci($number - 2) + getFibonacci(number - 1)
+    return $(( getFibonacci($number - 2) + getFibonacci($number - 1) ))
   fi
 }
 
-getByRecursion (position) {
- sequence=()
- for ((i = 0; i < $position; i++)); do
-  sequence+=$i
- done
+getByRecursion () {
+  position=$!
+  sequence=()
+  for ((i = 0; i < $position; i++)); do
+    getFibonacci $i
+    sequence+=( $? )
+  done
 
- return sequence
+  return "${sequence[@]}"
 }
 
-getByLineal (position) {
+getByLineal () {
+  position=$!
   sequence=()
   less2=0
   less1=1
@@ -39,14 +43,15 @@ getByLineal (position) {
       less1=$new
     done
 
-    return sequence
+    return "${sequence[@]}"
   fi
 }
 
 if [[ $position -ge 31 ]]; then
-  echo $(getByLineal($position)[0])
-  echo "Lineal mode implement"
+  x=$(( getByLineal "$position" ))
+  echo -e "${x[@]}\nLineal mode implement"
 else
-  echo $(getByRecursion($position))
+  x=$(( getByRecursion $position ))
+  echo "${x[@]}"
   echo "Recursion mode implement"
 fi
