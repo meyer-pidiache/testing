@@ -1,57 +1,48 @@
-echo -n "Type Fibonacci Length: "
+echo -n "Type Fibbonacci Length: "
 read -r position
 
 getFibonacci () {
-  number=$1
-  if [[ $number == 0 ]]; then
-    return 0
-  elif [[ $number == 1 ]]; then
-    return 1
+  if [[ $1 == 0 ]]; then
+    echo 0
+  elif [[ $1 == 1 ]]; then
+    echo 1
   else
-    return $(( getFibonacci($number - 2) + getFibonacci($number - 1) ))
+    local a=$(getFibonacci $(($1 - 2)))
+    local b=$(getFibonacci $(($1 - 1)))
+    echo $((a + b))
   fi
 }
 
 getByRecursion () {
-  position=$!
-  sequence=()
-  for ((i = 0; i < $position; i++)); do
-    getFibonacci $i
-    sequence+=( $? )
+  local sequence=()
+  for ((i = 0; i < $1; i++)); do
+    sequence+="$(getFibonacci $i) "
   done
-
-  return "${sequence[@]}"
+  
+  echo $sequence | sed 's/ /, /g; s/^/[/; s/$/]/'
 }
 
 getByLineal () {
-  position=$!
-  sequence=()
-  less2=0
-  less1=1
+  local sequence=()
+  local less2=0
+  local less1=1
 
-  if [[ $position == 0 ]]; then
-    return ($less2)
-  elif [[ $position == 1 ]]; then
-    return ($less2 $less1)
-  else
-    sequence=($less2 $less1)
-    for ((_ = 2; _ < $position; _++)); do
-      new=$(($less2+$less1))
-      sequence+=$new
+  sequence="$less2 $less1 "
+  for ((i = 2; i < $1; i++)); do
+    local new=$(($less2+$less1))
+    sequence+="$new "
 
-      less2=$less1
-      less1=$new
-    done
+    less2=$less1
+    less1=$new
+  done
 
-    return "${sequence[@]}"
-  fi
+  echo $sequence | sed 's/ /, /g; s/^/[/; s/$/]/'
 }
 
-if [[ $position -ge 31 ]]; then
-  x=$(( getByLineal "$position" ))
-  echo -e "${x[@]}\nLineal mode implement"
+if [[ $position -ge 16 ]]; then
+  echo -e "\n $(getByLineal $position)"
+  echo -e "\nLineal mode implement"
 else
-  x=$(( getByRecursion $position ))
-  echo "${x[@]}"
-  echo "Recursion mode implement"
+  echo -e "\n $(getByRecursion $position)"
+  echo -e "\nRecursion mode implement"
 fi
