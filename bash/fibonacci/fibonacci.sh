@@ -1,4 +1,4 @@
-echo -n "Type Fibbonacci Length: "
+echo -n "Type Fibonacci Length: "
 read -r position
 
 getFibonacci () {
