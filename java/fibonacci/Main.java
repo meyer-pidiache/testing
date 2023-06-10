@@ -25,12 +25,35 @@ public class Main {
     return sequence;
   }
 
+  public static int[] getByLineal(int position) {
+    int[] sequence;
+    int new_v;
+    sequence = new int[position];
+
+    int less2 = 0;
+    int less1 = 1;
+ 
+    sequence[0] = less2;
+    sequence[1] = less1;
+    for (int i = 2; i < position; i++) {
+      new_v = less2 + less1;
+      sequence[i] = new_v;
+
+      less2 = less1;
+      less1 = new_v;
+    }
+    
+    return sequence;
+  }
+
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     System.out.print("Type Fibonacci Length: ");
     int position = sc.nextInt();
     
     if (position > 15) {
+      int[] list = getByLineal(position);
+      System.out.println("\n " + Arrays.toString(list));
       System.out.println("\nLineal mode implement");
     } else {
       int[] list = getByRecursion(position);

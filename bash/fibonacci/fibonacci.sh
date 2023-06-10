@@ -29,11 +29,11 @@ getByLineal () {
 
   sequence="$less2 $less1 "
   for ((i = 2; i < $1; i++)); do
-    local new=$(($less2+$less1))
-    sequence+="$new "
+    local new_v=$(($less2+$less1))
+    sequence+="$new_v "
 
     less2=$less1
-    less1=$new
+    less1=$new_v
   done
 
   echo $sequence | sed 's/ /, /g; s/^/[/; s/$/]/'

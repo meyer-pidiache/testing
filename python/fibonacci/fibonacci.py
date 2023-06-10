@@ -24,11 +24,11 @@ def getByLineal(position) -> list:
 
     sequence = [less2, less1]
     for _ in range(2, position):
-        new = less2 + less1
-        sequence.append(new)
+        new_v = less2 + less1
+        sequence.append(new_v)
 
         less2 = less1
-        less1 = new
+        less1 = new_v
 
     return sequence
 
