@@ -1,6 +1,6 @@
 position = int(input("Type Fibonacci Lenght: "))
 
-def getFibonacci(number) -> int:
+def getFibonacci(number: int) -> int:
     if number == 0:
         return 0
     elif number == 1:
@@ -10,14 +10,14 @@ def getFibonacci(number) -> int:
         b = getFibonacci(number - 1)
         return a + b
 
-def getByRecursion(position) -> list:
+def getByRecursion(position: int) -> list:
     sequence = list()
     for i in range(position):
         sequence.append(getFibonacci(i))
 
     return sequence
 
-def getByLineal(position) -> list:
+def getByLineal(position: int) -> list:
     sequence = list()
 
     less2, less1 = 0, 1
