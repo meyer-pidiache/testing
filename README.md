@@ -16,6 +16,8 @@
 │   └── Main.java
 ├── javascript
 │   ├── app.js
+│   ├── fibonacci
+│   │   └── index.js
 │   ├── node_modules
 │   │   └── dotenv
 │   │       ├── CHANGELOG.md
@@ -131,7 +133,9 @@
 │           │   │   ├── app.js
 │           │   │   └── bootstrap.js
 │           │   └── views
-│           │       └── welcome.blade.php
+│           │       ├── nosotros.blade.php
+│           │       ├── principal.blade.php
+│           │       └── tienda.blade.php
 │           ├── routes
 │           │   ├── api.php
 │           │   ├── channels.php
@@ -167,5 +171,6 @@
 │   └── main.py
 └── README.md
 
-63 directories, 104 files
+64 directories, 107 files
 ```
+
