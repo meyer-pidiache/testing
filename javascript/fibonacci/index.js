@@ -8,3 +8,6 @@ readline.question('Type Fibonacci Length: ', name => {
   readline.close();
 });
 
+
+
+let x = "Lineal mode implement"
