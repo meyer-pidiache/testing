@@ -3,12 +3,12 @@ const readline = require('readline').createInterface({
   output: process.stdout
 });
 
-readline.question('Type Fibonacci Length: ', name => {
-  console.log(`Length ${name}`);
+readline.question('Type Fibonacci Length: ', position => {
+  if (position > 15) {
+    console.log("\nLineal mode implement");
+  } else {
+    console.log("\nRecursion mode implement");
+  }
   readline.close();
 });
-
-
-let x = "Lineal mode implement"
-let y = "Recursion mode implement"
 
