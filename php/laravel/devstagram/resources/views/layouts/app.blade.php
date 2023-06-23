@@ -14,12 +14,16 @@
             <div class="container mx-auto flex justify-between items-center"    >
 
                 <h1 class="text-3xl font-black">
-                    DevStagram
+                    <a href="/">
+                        DevStagram
+                    </a>
                 </h1>
 
                 <nav class="flex gap-2 items-center">
                     <a href="#" class="font-bold text-gray-600 text-sm">Login</a>
-                    <a href="#" class="font-bold text-gray-600 text-sm">Crear cuenta</a>
+                    <a href="/crear-cuenta" class="font-bold text-gray-600 text-sm">
+                        Crear cuenta
+                    </a>
                 </nav>
             </div>
         </header>
