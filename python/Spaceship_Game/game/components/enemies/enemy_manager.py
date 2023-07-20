@@ -1,4 +1,4 @@
-from random import choice, randint
+from random import choice
 
 from game.components.enemies.enemy import Enemy
 from game.utils.constants import ENEMIES
@@ -25,4 +25,7 @@ class EnemyManager:
     def get_random_enemy_data(self):
         enemy = choice(ENEMIES)
         return enemy.values()
+    
+    def reset(self):
+        self.enemies = []
     

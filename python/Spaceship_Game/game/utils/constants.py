@@ -6,6 +6,9 @@ from random import randint
 TITLE = "Spaceships Game"
 SCREEN_HEIGHT = 600
 SCREEN_WIDTH = 1100
+SCREEN_HEIGHT_CENTER = SCREEN_HEIGHT // 2
+SCREEN_WIDTH_CENTER = SCREEN_WIDTH // 2
+
 FPS = 30
 IMG_DIR = os.path.join(os.path.dirname(__file__), "..", "assets")
 
@@ -42,8 +45,13 @@ ENEMIES = [
         'image': ENEMY_2,
         'speed_x': 7,
         'speed_y': 2,
-        'shooting_interval': 250
+        'shooting_interval': 500
     }, 
 ]
 
 FONT_STYLE = 'freesansbold.ttf'
+
+COLORS = {
+    'WHITE': (255, 255, 255),
+    'BLACK': (0, 0, 0),
+}
