@@ -1,9 +1,9 @@
-import pygame
-
 from random import randint
+import pygame
 
 from game.components.power_ups.shield import Shield
 from game.utils.constants import SPACESHIP_SHIELD
+
 
 class PowerUpManager:
 
@@ -29,7 +29,10 @@ class PowerUpManager:
                 power_up.start_time = pygame.time.get_ticks()
                 game.player.power_up_type = power_up.type
                 game.player.has_power_up = True
-                game.player.power_time_up = power_up.start_time + (power_up.duration * 1000)
+                game.player.power_time_up = power_up.start_time + (
+                    power_up.duration * 1000
+                )
+                power_up.sound.play()
                 game.player.set_image((65, 75), SPACESHIP_SHIELD)
                 self.power_ups.remove(power_up)
 
