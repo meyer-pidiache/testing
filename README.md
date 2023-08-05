@@ -1,9 +1,9 @@
-```
 .
 ├── bash
 │   ├── checkIP.sh
 │   ├── fibonacci
 │   │   └── fibonacci.sh
+│   ├── getFullTTY.sh
 │   ├── README.md
 │   ├── resetNet.sh
 │   └── test.sh
@@ -66,7 +66,8 @@
 │           │   │   └── Handler.php
 │           │   ├── Http
 │           │   │   ├── Controllers
-│           │   │   │   └── Controller.php
+│           │   │   │   ├── Controller.php
+│           │   │   │   └── RegisterController.php
 │           │   │   ├── Kernel.php
 │           │   │   └── Middleware
 │           │   │       ├── Authenticate.php
@@ -121,9 +122,18 @@
 │           ├── docker-compose.yml
 │           ├── package.json
 │           ├── phpunit.xml
+│           ├── postcss.config.js
 │           ├── public
+│           │   ├── css
+│           │   │   └── app.css
 │           │   ├── favicon.ico
+│           │   ├── img
+│           │   │   ├── login.jpg
+│           │   │   └── registrar.jpg
 │           │   ├── index.php
+│           │   ├── js
+│           │   │   ├── app.js
+│           │   │   └── bootstrap.js
 │           │   └── robots.txt
 │           ├── README.md
 │           ├── resources
@@ -132,10 +142,19 @@
 │           │   ├── js
 │           │   │   ├── app.js
 │           │   │   └── bootstrap.js
+│           │   ├── lang
+│           │   │   ├── es
+│           │   │   │   ├── auth.php
+│           │   │   │   ├── pagination.php
+│           │   │   │   ├── passwords.php
+│           │   │   │   └── validation.php
+│           │   │   └── README.md
 │           │   └── views
-│           │       ├── nosotros.blade.php
-│           │       ├── principal.blade.php
-│           │       └── tienda.blade.php
+│           │       ├── auth
+│           │       │   └── register.blade.php
+│           │       ├── layouts
+│           │       │   └── app.blade.php
+│           │       └── principal.blade.php
 │           ├── routes
 │           │   ├── api.php
 │           │   ├── channels.php
@@ -151,6 +170,7 @@
 │           │   │   ├── testing
 │           │   │   └── views
 │           │   └── logs
+│           ├── tailwind.config.js
 │           ├── tests
 │           │   ├── CreatesApplication.php
 │           │   ├── Feature
@@ -168,9 +188,72 @@
 │   ├── fibonacci
 │   │   └── fibonacci.py
 │   ├── inverter.py
-│   └── main.py
+│   ├── main.py
+│   ├── robot
+│   │   └── main.py
+│   └── Spaceship_Game
+│       ├── game
+│       │   ├── assets
+│       │   │   ├── audio
+│       │   │   │   ├── explosion.wav
+│       │   │   │   ├── game_opener.wav
+│       │   │   │   ├── game_over.wav
+│       │   │   │   ├── menu.mp3
+│       │   │   │   ├── power_up.wav
+│       │   │   │   └── spaceship_shoot.wav
+│       │   │   └── img
+│       │   │       ├── Bullet
+│       │   │       │   ├── bullet_1.png
+│       │   │       │   ├── bullet_2.png
+│       │   │       │   └── bullet_3.png
+│       │   │       ├── Enemy
+│       │   │       │   ├── enemy_1.png
+│       │   │       │   └── enemy_2.png
+│       │   │       ├── Other
+│       │   │       │   ├── explosion.gif
+│       │   │       │   ├── GameOver.png
+│       │   │       │   ├── Reset.png
+│       │   │       │   ├── shield.png
+│       │   │       │   ├── SmallHeart.png
+│       │   │       │   └── Track.png
+│       │   │       └── Spaceship
+│       │   │           ├── spaceship.png
+│       │   │           └── spaceship_shield.png
+│       │   ├── components
+│       │   │   ├── bullets
+│       │   │   │   ├── bullet_manager.py
+│       │   │   │   ├── bullet.py
+│       │   │   │   ├── __init__.py
+│       │   │   │   └── __pycache__
+│       │   │   ├── enemies
+│       │   │   │   ├── enemy_manager.py
+│       │   │   │   ├── enemy.py
+│       │   │   │   ├── __init__.py
+│       │   │   │   └── __pycache__
+│       │   │   ├── explosions
+│       │   │   │   ├── explosion_manager.py
+│       │   │   │   ├── explosion.py
+│       │   │   │   ├── __init__.py
+│       │   │   │   └── __pycache__
+│       │   │   ├── game.py
+│       │   │   ├── __init__.py
+│       │   │   ├── menu.py
+│       │   │   ├── power_ups
+│       │   │   │   ├── __init__.py
+│       │   │   │   ├── power_up_manager.py
+│       │   │   │   ├── power_up.py
+│       │   │   │   ├── __pycache__
+│       │   │   │   └── shield.py
+│       │   │   ├── __pycache__
+│       │   │   └── spaceship.py
+│       │   ├── __init__.py
+│       │   ├── __pycache__
+│       │   └── utils
+│       │       ├── constants.py
+│       │       ├── __init__.py
+│       │       └── __pycache__
+│       ├── main.py
+│       └── requirements.txt
 └── README.md
 
-64 directories, 107 files
-```
-
+94 directories, 163 files
