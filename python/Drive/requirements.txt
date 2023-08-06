@@ -19,7 +19,7 @@ PyDrive2==1.15.3
 pyOpenSSL==23.1.1
 pyparsing==3.0.9
 PyYAML==6.0
-requests==2.30.0
+requests==2.31.0
 rsa==4.9
 six==1.16.0
 uritemplate==4.1.1
