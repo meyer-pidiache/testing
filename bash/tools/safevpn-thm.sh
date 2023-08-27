@@ -40,3 +40,6 @@
   iptables -A INPUT -i tun0 -j DROP
   iptables -A OUTPUT -o tun0 -j DROP
   
+  # Show config
+  iptables --list
+

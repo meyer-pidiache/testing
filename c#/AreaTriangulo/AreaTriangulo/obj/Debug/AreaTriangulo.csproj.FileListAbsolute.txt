@@ -1,0 +1,10 @@
+C:\Users\meyer\source\repos\AreaTriangulo\AreaTriangulo\bin\Debug\AreaTriangulo.exe.config
+C:\Users\meyer\source\repos\AreaTriangulo\AreaTriangulo\bin\Debug\AreaTriangulo.exe
+C:\Users\meyer\source\repos\AreaTriangulo\AreaTriangulo\bin\Debug\AreaTriangulo.pdb
+C:\Users\meyer\source\repos\AreaTriangulo\AreaTriangulo\obj\Debug\AreaTriangulo.csproj.AssemblyReference.cache
+C:\Users\meyer\source\repos\AreaTriangulo\AreaTriangulo\obj\Debug\AreaTriangulo.Form1.resources
+C:\Users\meyer\source\repos\AreaTriangulo\AreaTriangulo\obj\Debug\AreaTriangulo.Properties.Resources.resources
+C:\Users\meyer\source\repos\AreaTriangulo\AreaTriangulo\obj\Debug\AreaTriangulo.csproj.GenerateResource.cache
+C:\Users\meyer\source\repos\AreaTriangulo\AreaTriangulo\obj\Debug\AreaTriangulo.csproj.CoreCompileInputs.cache
+C:\Users\meyer\source\repos\AreaTriangulo\AreaTriangulo\obj\Debug\AreaTriangulo.exe
+C:\Users\meyer\source\repos\AreaTriangulo\AreaTriangulo\obj\Debug\AreaTriangulo.pdb
