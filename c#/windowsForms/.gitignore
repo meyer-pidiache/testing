@@ -1,67 +1,58 @@
-# Carpeta bin y obj generada por Visual Studio
-[Bb]in/
-[Oo]bj/
+# Carpeta bin y obj generada por Visual Studio en todos los proyectos
+**/bin/
+**/obj/
 
-# Carpeta de configuración .vs generada por Visual Studio
-.vscode/
-.vs/
+# Carpetas de configuración .vs generadas por Visual Studio en todos los proyectos
+**/.vscode/
+**/.vs/
 
-# Archivos de usuario y configuración
-*.suo
-*.user
-*.suo
-*.user
-*.sln.docstates
+# Archivos de usuario y configuración en todos los proyectos
+**/*.suo
+**/*.user
+**/*.sln.docstates
 
-# Carpeta de caché de Resharper
-_ReSharper/
+# Carpeta de caché de Resharper en todos los proyectos
+**/_ReSharper/
 
-# Carpeta de caché de Visual Studio
-ipch/
-*.sdf
+# Carpeta de caché de Visual Studio en todos los proyectos
+**/ipch/
+**/*.sdf
 
-# Archivos de respaldo y carpetas temporales generados por Windows
-[Tt]humbs.db
-[Dd]esktop.ini
-*.log
-*.logs
-*.bak
-*.cache
+# Archivos de respaldo y carpetas temporales generados por Windows en todos los proyectos
+**/*Thumbs.db
+**/*Desktop.ini
+**/*.log
+**/*.logs
+**/*.bak
+**/*.cache
 
-# Archivo de configuración NuGet
-nuget.config
+# Archivo de configuración NuGet en todos los proyectos
+**/nuget.config
 
-# Archivos de compilación
-*.dll
-*.pdb
-*.exe
+# Archivos de compilación en todos los proyectos
+**/*.dll
+**/*.pdb
+**/*.exe
 
-# Archivos generados por MSBuild
-msbuild.log
+# Archivos generados por MSBuild en todos los proyectos
+**/msbuild.log
 
-# Archivos generados por Rider
-.idea/
-.idea/
+# Archivos generados por Rider en todos los proyectos
+**/.idea/
+**/.idea/
 
-# Archivos generados por Visual Studio Code
-.vscode/
+# Archivos generados por Visual Studio Code en todos los proyectos
+**/.vscode/
 
-# Archivos generados por Rider
-.idea/
-.idea/
+# Carpetas y archivos específicos del entorno de desarrollo en todos los proyectos
+**/packages/
+**/*.suo
+**/*.user
+**/*.userosscache
+**/*.sln.docstates
 
-# Archivos generados por Visual Studio Code
-.vscode/
+# Carpeta generada por Windows Forms para la vista previa de impresión en todos los proyectos
+**/PrintPreviewDialog/
 
-# Carpetas y archivos específicos del entorno de desarrollo
-packages/
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
-
-# Carpeta generada por Windows Forms para la vista previa de impresión
-PrintPreviewDialog/
-
-# Carpeta generada por Windows Forms para los archivos de recursos
-Resources/
+# Carpetas generadas por Windows Forms para los archivos de recursos en todos los proyectos
+**/Resources/
