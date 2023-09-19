@@ -1,0 +1,67 @@
+# Carpeta bin y obj generada por Visual Studio
+[Bb]in/
+[Oo]bj/
+
+# Carpeta de configuración .vs generada por Visual Studio
+.vscode/
+.vs/
+
+# Archivos de usuario y configuración
+*.suo
+*.user
+*.suo
+*.user
+*.sln.docstates
+
+# Carpeta de caché de Resharper
+_ReSharper/
+
+# Carpeta de caché de Visual Studio
+ipch/
+*.sdf
+
+# Archivos de respaldo y carpetas temporales generados por Windows
+[Tt]humbs.db
+[Dd]esktop.ini
+*.log
+*.logs
+*.bak
+*.cache
+
+# Archivo de configuración NuGet
+nuget.config
+
+# Archivos de compilación
+*.dll
+*.pdb
+*.exe
+
+# Archivos generados por MSBuild
+msbuild.log
+
+# Archivos generados por Rider
+.idea/
+.idea/
+
+# Archivos generados por Visual Studio Code
+.vscode/
+
+# Archivos generados por Rider
+.idea/
+.idea/
+
+# Archivos generados por Visual Studio Code
+.vscode/
+
+# Carpetas y archivos específicos del entorno de desarrollo
+packages/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Carpeta generada por Windows Forms para la vista previa de impresión
+PrintPreviewDialog/
+
+# Carpeta generada por Windows Forms para los archivos de recursos
+Resources/
