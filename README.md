@@ -1,16 +1,100 @@
 ```
 .
 ├── bash
-│   ├── checkIP.sh
 │   ├── fibonacci
 │   │   └── fibonacci.sh
-│   ├── getFullTTY.sh
 │   ├── README.md
 │   ├── resetNet.sh
-│   └── test.sh
-├── c++
+│   ├── testing
+│   │   └── test.sh
+│   └── tools
+│       ├── checkIP.sh
+│       ├── getFullTTY.sh
+│       ├── readmeMaker.sh
+│       └── safevpn-thm.sh
+├── c#
+│   └── windowsForms
+│       ├── AreaCuadrado
+│       │   ├── AreaCuadrado
+│       │   │   ├── App.config
+│       │   │   ├── AreaCuadrado.csproj
+│       │   │   ├── Form1.cs
+│       │   │   ├── Form1.Designer.cs
+│       │   │   ├── Form1.resx
+│       │   │   ├── Program.cs
+│       │   │   └── Properties
+│       │   │       ├── AssemblyInfo.cs
+│       │   │       ├── Resources.Designer.cs
+│       │   │       ├── Resources.resx
+│       │   │       ├── Settings.Designer.cs
+│       │   │       └── Settings.settings
+│       │   └── AreaCuadrado.sln
+│       ├── AreaPerimetroFiguras
+│       │   ├── AreaPerimetroFiguras
+│       │   │   ├── AreaPerimetroFiguras.csproj
+│       │   │   ├── Form1.cs
+│       │   │   ├── Form1.Designer.cs
+│       │   │   ├── Form1.resx
+│       │   │   └── Program.cs
+│       │   └── AreaPerimetroFiguras.sln
+│       ├── AreaTriangulo
+│       │   ├── AreaTriangulo
+│       │   │   ├── App.config
+│       │   │   ├── AreaTriangulo.csproj
+│       │   │   ├── Form1.cs
+│       │   │   ├── Form1.Designer.cs
+│       │   │   ├── Form1.resx
+│       │   │   ├── img
+│       │   │   │   └── triangulo.png
+│       │   │   ├── Program.cs
+│       │   │   └── Properties
+│       │   │       ├── AssemblyInfo.cs
+│       │   │       ├── Resources.Designer.cs
+│       │   │       ├── Resources.resx
+│       │   │       ├── Settings.Designer.cs
+│       │   │       └── Settings.settings
+│       │   └── AreaTriangulo.sln
+│       ├── DataGridView
+│       │   ├── Clase 5.3
+│       │   │   ├── Clase 5.3.csproj
+│       │   │   ├── Form1.cs
+│       │   │   ├── Form1.Designer.cs
+│       │   │   ├── Form1.resx
+│       │   │   └── Program.cs
+│       │   └── Clase 5.3.sln
+│       ├── EsPrimo
+│       │   ├── EsPar
+│       │   │   ├── EsPar.csproj
+│       │   │   ├── Form1.cs
+│       │   │   ├── Form1.Designer.cs
+│       │   │   ├── Form1.resx
+│       │   │   └── Program.cs
+│       │   └── EsPar.sln
+│       ├── ImparOPar
+│       │   ├── ImparOPar
+│       │   │   ├── Form1.cs
+│       │   │   ├── Form1.Designer.cs
+│       │   │   ├── Form1.resx
+│       │   │   ├── ImparOPar.csproj
+│       │   │   └── Program.cs
+│       │   └── ImparOPar.sln
+│       ├── NumeroMayor
+│       │   ├── NumeroMayor
+│       │   │   ├── Form1.cs
+│       │   │   ├── Form1.Designer.cs
+│       │   │   ├── Form1.resx
+│       │   │   ├── NumeroMayor.csproj
+│       │   │   └── Program.cs
+│       │   └── NumeroMayor.sln
+│       └── Parcial2
+│           ├── Parcial2
+│           │   ├── Form1.cs
+│           │   ├── Form1.Designer.cs
+│           │   ├── Form1.resx
+│           │   ├── Parcial2.csproj
+│           │   └── Program.cs
+│           └── Parcial2.sln
 ├── commitlint.config.js
-├── go
 ├── java
 │   ├── fibonacci
 │   │   └── Main.java
@@ -19,29 +103,12 @@
 │   ├── app.js
 │   ├── fibonacci
 │   │   └── index.js
-│   ├── node_modules
-│   │   └── dotenv
-│   │       ├── CHANGELOG.md
-│   │       ├── config.d.ts
-│   │       ├── config.js
-│   │       ├── lib
-│   │       │   ├── cli-options.js
-│   │       │   ├── env-options.js
-│   │       │   ├── main.d.ts
-│   │       │   └── main.js
-│   │       ├── LICENSE
-│   │       ├── package.json
-│   │       └── README.md
 │   ├── omegle.js
 │   └── package.json
 ├── package.json
 ├── php
 │   ├── environment
 │   │   ├── docker-compose.yml
-│   │   ├── log
-│   │   │   ├── nginx
-│   │   │   └── php
-│   │   ├── mysql
 │   │   ├── nginx
 │   │   │   └── conf.d
 │   │   │       └── default.conf
@@ -51,11 +118,10 @@
 │   │   └── www
 │   │       ├── composer.json
 │   │       ├── composer.lock
-│   │       ├── src
-│   │       │   ├── home.php
-│   │       │   ├── index.php
-│   │       │   └── style.css
-│   │       └── vendor
+│   │       └── src
+│   │           ├── home.php
+│   │           ├── index.php
+│   │           └── style.css
 │   ├── fibonacci
 │   │   └── index.php
 │   └── laravel
@@ -144,12 +210,6 @@
 │           │   │   ├── app.js
 │           │   │   └── bootstrap.js
 │           │   ├── lang
-│           │   │   ├── es
-│           │   │   │   ├── auth.php
-│           │   │   │   ├── pagination.php
-│           │   │   │   ├── passwords.php
-│           │   │   │   └── validation.php
-│           │   │   └── README.md
 │           │   └── views
 │           │       ├── auth
 │           │       │   └── register.blade.php
@@ -224,18 +284,15 @@
 │       │   │   ├── bullets
 │       │   │   │   ├── bullet_manager.py
 │       │   │   │   ├── bullet.py
-│       │   │   │   ├── __init__.py
-│       │   │   │   └── __pycache__
+│       │   │   │   └── __init__.py
 │       │   │   ├── enemies
 │       │   │   │   ├── enemy_manager.py
 │       │   │   │   ├── enemy.py
-│       │   │   │   ├── __init__.py
-│       │   │   │   └── __pycache__
+│       │   │   │   └── __init__.py
 │       │   │   ├── explosions
 │       │   │   │   ├── explosion_manager.py
 │       │   │   │   ├── explosion.py
-│       │   │   │   ├── __init__.py
-│       │   │   │   └── __pycache__
+│       │   │   │   └── __init__.py
 │       │   │   ├── game.py
 │       │   │   ├── __init__.py
 │       │   │   ├── menu.py
@@ -243,20 +300,15 @@
 │       │   │   │   ├── __init__.py
 │       │   │   │   ├── power_up_manager.py
 │       │   │   │   ├── power_up.py
-│       │   │   │   ├── __pycache__
 │       │   │   │   └── shield.py
-│       │   │   ├── __pycache__
 │       │   │   └── spaceship.py
 │       │   ├── __init__.py
-│       │   ├── __pycache__
 │       │   └── utils
 │       │       ├── constants.py
-│       │       ├── __init__.py
-│       │       └── __pycache__
+│       │       └── __init__.py
 │       ├── main.py
 │       └── requirements.txt
 └── README.md
 
-94 directories, 163 files
+99 directories, 211 files
 ```
-
