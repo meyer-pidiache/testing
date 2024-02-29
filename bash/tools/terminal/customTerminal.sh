@@ -36,42 +36,63 @@ run_as_user() {
 }
 
 plugins() {
-    print_message "info" "Descargando extensión Sudo"
-    mkdir -p /usr/share/zsh/plugins/zsh-sudo/
-    wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh -P /usr/share/zsh/plugins/zsh-sudo/
+    if ! [ -e "/usr/share/zsh/plugins/zsh-sudo/" ]; then
+        print_message "info" "Descargando extensión Sudo"
+        mkdir -p /usr/share/zsh/plugins/zsh-sudo/
+        wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh -P /usr/share/zsh/plugins/zsh-sudo/
+    fi
 
-    print_message "info" "Ordenando extensiones"
-    mv /usr/share/zsh-syntax-highlighting /usr/share/zsh/plugins/
-    mv /usr/share/zsh-autosuggestions /usr/share/zsh/plugins/
+    if ! [ -e "/usr/share/zsh/plugins/zsh-syntax-highlighting" ] && [ -e "/usr/share/zsh/zsh-syntax-highlighting" ]; then
+        print_message "info" "Ordenando extensión zsh-syntax-highlighting"
+        mv /usr/share/zsh-syntax-highlighting /usr/share/zsh/plugins/
+    fi
+
+    if ! [ -e "/usr/share/zsh/plugins/zsh-autosuggestions" ] && [ -e "/usr/share/zsh/zsh-autosuggestions" ]; then
+        print_message "info" "Ordenando extensión zsh-autosuggestions"
+        mv /usr/share/zsh-autosuggestions /usr/share/zsh/plugins/
+    fi
 
     print_message "success" "Extensiones configuradas"
 }
 
-tools() {
-    print_message "info" "Descargando última versión de Neovim"
-    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-    rm -rf /opt/nvim
-    tar -C /opt -xzf nvim-linux64.tar.gz
-    rm nvim-linux64.tar.gz
 
-    print_message "info" "Instalando NvChad"
-    export PATH="$PATH:/opt/nvim-linux64/bin"
-    run_as_user "git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1" && run_as_user "nvim"
+tools() {
+    if ! [ -e "/opt/nvim-linux64" ]; then
+        print_message "info" "Descargando última versión de Neovim"
+        curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+        rm -rf /opt/nvim
+        tar -C /opt -xzf nvim-linux64.tar.gz
+        rm nvim-linux64.tar.gz
+        print_message "success" "Neovim instalado"
+    fi
+
+    if [ -e "/home/$USER_NAME/.config/nvim" ]; then
+        # Desinstalamos para reinstalar
+        rm -rf /home/$USER_NAME/.config/nvim
+        rm -rf /home/$USER_NAME/.local/share/nvim
+    else
+        print_message "info" "Instalando NvChad"
+        run_as_user "git clone https://github.com/NvChad/NvChad /home/$USER_NAME/.config/nvim --depth 1" && run_as_user "/opt/nvim-linux64/bin/nvim"
+    fi
 }
 
 installP10K() {
-    print_message "info" "Descargando Power Level 10K"
-    run_as_user "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k"
-    
-    print_message "info" "Descargando archivo de configuración"
-    run_as_user "wget https://raw.githubusercontent.com/meyer-pidiache/dotfiles/main/.p10k.zsh -O ~/.p10k.zsh"
+    if ! [ -e "/home/$USER_NAME/.powerlevel10k" ]; then
+        print_message "info" "Descargando Power Level 10K"
+        run_as_user "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /home/$USER_NAME/.powerlevel10k"
+    fi
+
+    if ! [ -e "/home/$USER_NAME/.p10k.zsh" ]; then
+        print_message "info" "Descargando archivo de configuración"
+        run_as_user "wget https://raw.githubusercontent.com/meyer-pidiache/dotfiles/main/.p10k.zsh -O /home/$USER_NAME/.p10k.zsh"
+    fi
 
     print_message "success" "Power Level 10K instalado"
 }
 
 kittyConfig() {
     print_message "info" "Configurando Kitty Terminal"
-    KITTY_CONFIG_DIR=~/.config/kitty
+    KITTY_CONFIG_DIR=/home/$USER_NAME/.config/kitty
     KITTY_CONFIG_FILE="$KITTY_CONFIG_DIR/kitty.conf"
 
     # Validar si el archivo ya existe
@@ -89,15 +110,17 @@ kittyConfig() {
 
 
 zshConfig() {
-    # Guardar copia de ~/.zshrc si ya existe
+    # Guardar copia de /home/$USER_NAME/.zshrc si ya existe
     print_message "info" "Configurando la ZSH"
-    if [ -e ~/.zshrc ]; then
-        run_as_user "mv ~/.zshrc ~/.zshrc.old"
+    if [ -e "/home/$USER_NAME/.zshrc" ]; then
+        run_as_user "mv /home/$USER_NAME/.zshrc /home/$USER_NAME/.zshrc.old"
     fi
 
-    run_as_user "touch ~/.zsh_history"
-
-    run_as_user "wget https://raw.githubusercontent.com/meyer-pidiache/testing/main/bash/tools/terminal/.zshrc -O ~/.zshrc"
+    if ! [ -e "/home/$USER_NAME/.zsh_history" ]; then
+        run_as_user "touch /home/$USER_NAME/.zsh_history"
+    fi
+    
+    run_as_user "wget https://raw.githubusercontent.com/meyer-pidiache/testing/main/bash/tools/terminal/.zshrc -O /home/$USER_NAME/.zshrc"
 
     print_message "success" "ZSH configurado"
 }
@@ -111,15 +134,19 @@ checkFontInstalled() {
 }
 
 installFont() {
-    print_message "info" "Descargando Hack Nerd Font (TTF)"
-    run_as_user "curl -LO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Hack.zip"
-    print_message "info" "Instalando Hack Nerd Font (TTF)"
-    run_as_user "mkdir hack-nerd-font"
-    run_as_user "unzip Hack.zip -d hack-nerd-font"
-    rm Hack.zip
-    mv hack-nerd-font/ /usr/share/fonts/truetype/
-    fc-cache -f -v
-    checkFontInstalled
+    if fc-list | grep -q "hack"; then
+        print_message "success" "Hack Nerd Font se encuentra instalada."
+    else
+        print_message "info" "Descargando Hack Nerd Font (TTF)"
+        run_as_user "curl -LO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Hack.zip"
+        print_message "info" "Instalando Hack Nerd Font (TTF)"
+        run_as_user "mkdir hack-nerd-font"
+        run_as_user "unzip Hack.zip -d hack-nerd-font"
+        rm Hack.zip
+        mv hack-nerd-font/ /usr/share/fonts/truetype/
+        fc-cache -f -v
+        checkFontInstalled
+    fi
 }
 
 isInstalled() {
