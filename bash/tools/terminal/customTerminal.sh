@@ -52,11 +52,10 @@ tools() {
     curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
     rm -rf /opt/nvim
     tar -C /opt -xzf nvim-linux64.tar.gz
-    export PATH="$PATH:/opt/nvim-linux64/bin"
     rm nvim-linux64.tar.gz
 
     print_message "info" "Instalando NvChad"
-    run_as_user "git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim"
+    run_as_user "git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && /opt/nvim-linux64/bin/nvim"
 }
 
 installP10K() {
