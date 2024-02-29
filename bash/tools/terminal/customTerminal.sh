@@ -70,10 +70,10 @@ tools() {
         # Desinstalamos para reinstalar
         rm -rf /home/$USER_NAME/.config/nvim
         rm -rf /home/$USER_NAME/.local/share/nvim
-    else
-        print_message "info" "Instalando NvChad"
-        run_as_user "git clone https://github.com/NvChad/NvChad /home/$USER_NAME/.config/nvim --depth 1" && run_as_user "/opt/nvim-linux64/bin/nvim"
     fi
+
+    print_message "info" "Instalando NvChad"
+    run_as_user "git clone https://github.com/NvChad/NvChad /home/$USER_NAME/.config/nvim --depth 1" && run_as_user "/opt/nvim-linux64/bin/nvim"
 }
 
 installP10K() {
@@ -95,15 +95,14 @@ kittyConfig() {
     KITTY_CONFIG_DIR=/home/$USER_NAME/.config/kitty
     KITTY_CONFIG_FILE="$KITTY_CONFIG_DIR/kitty.conf"
 
-    # Validar si el archivo ya existe
     if [ -e "$KITTY_CONFIG_FILE" ]; then
         print_message "info" "El archivo $KITTY_CONFIG_FILE ya existe. Haciendo copia de seguridad..."
-        run_as_user "mv '$KITTY_CONFIG_FILE' '$KITTY_CONFIG_FILE.backup'"
+        run_as_user "mv $KITTY_CONFIG_FILE $KITTY_CONFIG_FILE.backup"
     else
-        run_as_user "mkdir -p '$KITTY_CONFIG_DIR'"
+        run_as_user "mkdir -p $KITTY_CONFIG_DIR"
     fi
 
-    run_as_user "wget https://raw.githubusercontent.com/meyer-pidiache/testing/main/bash/tools/terminal/kitty.conf -O '$KITTY_CONFIG_FILE'"
+    run_as_user "wget https://raw.githubusercontent.com/meyer-pidiache/testing/main/bash/tools/terminal/kitty.conf -O $KITTY_CONFIG_FILE"
 
     print_message "success" "Se ha configurado Kitty Terminal"
 }
