@@ -153,6 +153,7 @@ if [ "$(id -u)" == "0" ]; then
     kittyConfig
     installP10K
     plugins
+    tools
 
     print_message "success" "¡Listo!"
   fi
