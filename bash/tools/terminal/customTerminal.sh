@@ -55,7 +55,8 @@ tools() {
     rm nvim-linux64.tar.gz
 
     print_message "info" "Instalando NvChad"
-    run_as_user "git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && /opt/nvim-linux64/bin/nvim"
+    export PATH="$PATH:/opt/nvim-linux64/bin"
+    run_as_user "git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1" && run_as_user "nvim"
 }
 
 installP10K() {
