@@ -142,19 +142,21 @@ install_packages() {
 }
 
 if [ "$(id -u)" == "0" ]; then
-  if [ -z "$USER_NAME" ]; then
-    print_message "error" "No se pudo determinar el nombre de usuario. ¿Estás ejecutando el script con sudo?"
+  if [ "$#" != "1" ]; then
+    print_message "error" "Especifica el usuario a usar: sudo ./customTerminal.sh [USERNAME]"
+  else
+    USER_NAME="$1"
+
+    install_packages
+    installFont
+    zshConfig
+    kittyConfig
+    installP10K
+    plugins
+
+    print_message "success" "¡Listo!"
   fi
-  USER_NAME="$SUDO_USER"
 
-  install_packages
-  installFont
-  zshConfig
-  kittyConfig
-  installP10K
-  plugins
-
-  print_message "success" "¡Listo!"
 else
   print_message "error" "Ejecuta el script como root (sudo)"
 fi
