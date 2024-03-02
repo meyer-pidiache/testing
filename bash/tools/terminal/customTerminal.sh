@@ -42,12 +42,12 @@ plugins() {
         wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh -P /usr/share/zsh/plugins/zsh-sudo/
     fi
 
-    if ! [ -e "/usr/share/zsh/plugins/zsh-syntax-highlighting" ] && [ -e "/usr/share/zsh/zsh-syntax-highlighting" ]; then
+    if ! [ -e "/usr/share/zsh/plugins/zsh-syntax-highlighting" ] && [ -e "/usr/share/zsh-syntax-highlighting" ]; then
         print_message "info" "Ordenando extensión zsh-syntax-highlighting"
         mv /usr/share/zsh-syntax-highlighting /usr/share/zsh/plugins/
     fi
 
-    if ! [ -e "/usr/share/zsh/plugins/zsh-autosuggestions" ] && [ -e "/usr/share/zsh/zsh-autosuggestions" ]; then
+    if ! [ -e "/usr/share/zsh/plugins/zsh-autosuggestions" ] && [ -e "/usr/share/zsh-autosuggestions" ]; then
         print_message "info" "Ordenando extensión zsh-autosuggestions"
         mv /usr/share/zsh-autosuggestions /usr/share/zsh/plugins/
     fi
